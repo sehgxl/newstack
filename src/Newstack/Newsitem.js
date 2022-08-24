@@ -4,7 +4,7 @@ const Newsitem = ({ item }) => {
   return (
     <a
       target="_blank"
-      href={item.url}
+      href={item.link}
       className="text-white border-b pb-2 text-start border-white hover:text-green-500 hover:border-green-500"
       rel="noreferrer"
     >

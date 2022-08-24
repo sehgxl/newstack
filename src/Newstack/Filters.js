@@ -1,6 +1,6 @@
 import React from "react";
 
-const Filters = ({ setCategory, setCountry }) => {
+const Filters = ({ setTopic, setCountry }) => {
   return (
     <nav className="flex gap-2">
       <select
@@ -12,13 +12,13 @@ const Filters = ({ setCategory, setCountry }) => {
           console.log(e.target.value);
         }}
       >
-        <option className="text-start" value="in">
+        <option className="text-start" value="IN">
           India
         </option>
-        <option className="text-start" value="ch">
+        <option className="text-start" value="CH">
           China
         </option>
-        <option className="text-start" value="us">
+        <option className="text-start" value="US">
           USA
         </option>
       </select>
@@ -27,10 +27,10 @@ const Filters = ({ setCategory, setCountry }) => {
         name="category"
         id="category"
         onChange={(e) => {
-          setCategory(e.target.value);
+          setTopic(e.target.value);
         }}
       >
-        <option className="text-start" value="general">
+        <option className="text-start" value="news">
           General
         </option>
         <option className="text-start" value="entertainment">
@@ -39,16 +39,16 @@ const Filters = ({ setCategory, setCountry }) => {
         <option className="text-start" value="business">
           Business
         </option>
-        <option className="text-start" value="health">
-          Health
+        <option className="text-start" value="politics">
+          Politics
         </option>
         <option className="text-start" value="science">
           Science
         </option>
-        <option className="text-start" value="sports">
+        <option className="text-start" value="sport">
           Sports
         </option>
-        <option className="text-start" value="technology">
+        <option className="text-start" value="tech">
           Tech
         </option>
       </select>

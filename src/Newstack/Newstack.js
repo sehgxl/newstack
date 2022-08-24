@@ -2,14 +2,20 @@ import React, { useEffect, useState } from "react";
 import Newscontainer from "./Newscontainer";
 const Newstack = () => {
   const [NewsData, setNewsData] = useState([]);
-  const [Country, setCountry] = useState("in");
-  const [Category, setCategory] = useState("general");
-  const [Page, setPage] = useState(1);
+  const [Country, setCountry] = useState("IN");
+  const [Topic, setTopic] = useState("news");
   const [Loading, setLoading] = useState(false);
+  const options = {
+    method: "GET",
+    headers: {
+      "x-api-key": "ljw4DS6A0wiucTCCVlslFsvxlla-cPJh2mgg0Jml6UY",
+    },
+  };
   async function getData() {
     setLoading(true);
     const res = await fetch(
-      `https://newsapi.org/v2/top-headlines?country=${Country}&apiKey=1453bad8a6864bffa43aaa108dd5128a&pageSize=5&category=${Category}`
+      `https://api.newscatcherapi.com/v2/latest_headlines?countries=${Country}&topic=${Topic}&page_size=5&lang=en`,
+      options
     );
     const json = await res.json();
     console.log(json);
@@ -19,14 +25,14 @@ const Newstack = () => {
 
   useEffect(() => {
     getData();
-  }, [Category, Country]);
+  }, [Topic, Country]);
 
   return (
     <section className="font-mono bg-black min-h-screen flex justify-center items-center px-40">
       <Newscontainer
         NewsData={NewsData}
         setCountry={setCountry}
-        setCategory={setCategory}
+        setTopic={setTopic}
         Loading={Loading}
       />
     </section>

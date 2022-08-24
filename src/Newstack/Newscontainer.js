@@ -3,12 +3,12 @@ import Filters from "./Filters";
 import LoadingDots from "./LoadingDots";
 import Newsitem from "./Newsitem";
 
-const Newscontainer = ({ NewsData, setCategory, setCountry, Loading }) => {
+const Newscontainer = ({ NewsData, setTopic, setCountry, Loading }) => {
   let itemID = 0;
   return (
     <section>
       <section className="flex flex-col items-start gap-5 flex-wrap ">
-        <Filters setCountry={setCountry} setCategory={setCategory} />
+        <Filters setCountry={setCountry} setTopic={setTopic} />
         {Loading ? (
           <LoadingDots />
         ) : (
