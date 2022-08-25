@@ -2,9 +2,9 @@ import React from "react";
 
 const Filters = ({ setTopic, setCountry }) => {
   return (
-    <nav className="flex gap-2">
+    <nav className="text-lg flex gap-2 absolute top-10 -translate-x-1/2 -translate-y-1/2 left-1/2 text-center">
       <select
-        className="px-4"
+        className="px-4 bg-none"
         name="country"
         id="country"
         onChange={(e) => {

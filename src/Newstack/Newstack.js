@@ -5,6 +5,8 @@ const Newstack = () => {
   const [Country, setCountry] = useState("IN");
   const [Topic, setTopic] = useState("news");
   const [Loading, setLoading] = useState(false);
+  const [Page, setPage] = useState(1);
+
   const options = {
     method: "GET",
     headers: {
@@ -14,13 +16,13 @@ const Newstack = () => {
   async function getData() {
     setLoading(true);
     const res = await fetch(
-      `https://api.newscatcherapi.com/v2/latest_headlines?countries=${Country}&topic=${Topic}&page_size=5&lang=en`,
+      `https://api.newscatcherapi.com/v2/latest_headlines?countries=${Country}&topic=${Topic}&lang=en`,
       options
     );
     const json = await res.json();
     console.log(json);
     setLoading(false);
-    setNewsData(json.articles);
+    setNewsData(json.articles.slice(0, 25));
   }
 
   useEffect(() => {
@@ -34,6 +36,8 @@ const Newstack = () => {
         setCountry={setCountry}
         setTopic={setTopic}
         Loading={Loading}
+        Page={Page}
+        setPage={setPage}
       />
     </section>
   );
