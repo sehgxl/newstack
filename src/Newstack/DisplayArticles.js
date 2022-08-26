@@ -23,7 +23,7 @@ const DiplayArticles = ({ NewsData, Loading }) => {
       {Loading ? (
         <LoadingDots />
       ) : (
-        <section className="flex flex-col md:max-w-[60rem] items-start gap-7 ">
+        <section className="flex flex-col  items-start gap-7 ">
           {showArticles?.map((item) => {
             return <Newsitem item={item} key={item._id} />;
           })}
