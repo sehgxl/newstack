@@ -13,7 +13,6 @@ const DiplayArticles = ({ NewsData, Loading }) => {
     pagesVisited,
     pagesVisited + articlesPerPage
   );
-  let itemID = 0;
   //how many pages
   const pageCount = Math.ceil(NewsData.length / articlesPerPage);
   const changePage = ({ selected }) => {
@@ -24,9 +23,9 @@ const DiplayArticles = ({ NewsData, Loading }) => {
       {Loading ? (
         <LoadingDots />
       ) : (
-        <section className="flex flex-col max-w-[50rem] md:max-w-[45rem] items-start gap-7 ">
+        <section className="flex flex-col md:max-w-[60rem] items-start gap-7 ">
           {showArticles?.map((item) => {
-            return <Newsitem item={item} key={itemID++} />;
+            return <Newsitem item={item} key={item._id} />;
           })}
           <ReactPaginate
             previousLabel={"Back"}

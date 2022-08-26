@@ -27,10 +27,11 @@ const Newstack = () => {
 
   useEffect(() => {
     getData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [Topic, Country]);
 
   return (
-    <section className="font-mono relative bg-black min-h-screen flex justify-center items-center px-10 sm:px-20  lg:px-40 md:py-5">
+    <section className="font-mono relative bg-black min-h-screen flex justify-center items-center px-10 sm:px-20  lg:px-30 md:py-5">
       <Newscontainer
         NewsData={NewsData}
         setCountry={setCountry}
