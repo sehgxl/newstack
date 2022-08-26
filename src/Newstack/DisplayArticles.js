@@ -20,7 +20,7 @@ const DiplayArticles = ({ NewsData, Loading }) => {
     setPageNumber(selected);
   };
   return (
-    <span>
+    <div>
       {Loading ? (
         <LoadingDots />
       ) : (
@@ -29,13 +29,12 @@ const DiplayArticles = ({ NewsData, Loading }) => {
             return <Newsitem item={item} key={itemID++} />;
           })}
           <ReactPaginate
-            className=""
             previousLabel={"Back"}
             nextLabel={"Next"}
             pageCount={pageCount}
             onPageChange={changePage}
             containerClassName={
-              "absolute bottom-0 -translate-x-1/2 -translate-y-1/2 left-1/2 text-center  text-white flex gap-5"
+              "absolute left-1/2 bottom-1 -translate-x-1/2   text-center  text-white flex gap-5 "
             }
             previousClassName={
               " py-2 border-b border-transparent  hover:border-white  "
@@ -51,7 +50,7 @@ const DiplayArticles = ({ NewsData, Loading }) => {
           />
         </section>
       )}
-    </span>
+    </div>
   );
 };
 
