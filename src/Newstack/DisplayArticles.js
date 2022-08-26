@@ -24,7 +24,7 @@ const DiplayArticles = ({ NewsData, Loading }) => {
       {Loading ? (
         <LoadingDots />
       ) : (
-        <section className="flex flex-col max-w-[45rem] items-start gap-7 ">
+        <section className="flex flex-col max-w-[50rem] md:max-w-[45rem] items-start gap-7 ">
           {showArticles?.map((item) => {
             return <Newsitem item={item} key={itemID++} />;
           })}
@@ -35,7 +35,7 @@ const DiplayArticles = ({ NewsData, Loading }) => {
             pageCount={pageCount}
             onPageChange={changePage}
             containerClassName={
-              "absolute bottom-5 -translate-x-1/2 -translate-y-1/2 left-1/2 text-center  text-white flex gap-5"
+              "absolute bottom-0 -translate-x-1/2 -translate-y-1/2 left-1/2 text-center  text-white flex gap-5"
             }
             previousClassName={
               " py-2 border-b border-transparent  hover:border-white  "
