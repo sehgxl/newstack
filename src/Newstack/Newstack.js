@@ -31,7 +31,7 @@ const Newstack = () => {
   }, [Topic, Country]);
 
   return (
-    <section className="font-mono  bg-black min-h-screen flex justify-center items-center px-10 sm:px-20  lg:px-30 md:py-5 overflow-hidden ">
+    <section className="font-mono  bg-black min-h-screen flex justify-center  px-10 sm:px-20  lg:px-30  ">
       <Newscontainer
         NewsData={NewsData}
         setCountry={setCountry}
