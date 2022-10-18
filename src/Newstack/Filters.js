@@ -12,9 +12,9 @@ const Filters = ({ setTopic, setCountry }) => {
           console.log(e.target.value);
         }}
       >
-        <option value="IN">India</option>
-        <option value="CH">China</option>
-        <option value="US">USA</option>
+        <option value="in">India</option>
+        <option value="ch">China</option>
+        <option value="us">USA</option>
       </select>
       <select
         className="px-4 py-2  bg-transparent text-white border-white border cursor-pointer  [&>*]:text-black [&>*]:text-start"
@@ -24,13 +24,13 @@ const Filters = ({ setTopic, setCountry }) => {
           setTopic(e.target.value);
         }}
       >
-        <option value="news">General</option>
+        <option value="general">General</option>
         <option value="entertainment">Entertainment</option>
         <option value="business">Business</option>
         <option value="politics">Politics</option>
         <option value="science">Science</option>
         <option value="sport">Sports</option>
-        <option value="tech">Tech</option>
+        <option value="technology">Tech</option>
       </select>
     </nav>
   );

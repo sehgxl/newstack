@@ -2,27 +2,25 @@ import React, { useEffect, useState } from "react";
 import Newscontainer from "./Newscontainer";
 const Newstack = () => {
   const [NewsData, setNewsData] = useState([]);
-  const [Country, setCountry] = useState("IN");
-  const [Topic, setTopic] = useState("news");
+  const [Country, setCountry] = useState("in");
+  const [Topic, setTopic] = useState("general");
   const [Loading, setLoading] = useState(false);
   const [Page, setPage] = useState(1);
-
-  const options = {
-    method: "GET",
-    headers: {
-      "x-api-key": "ljw4DS6A0wiucTCCVlslFsvxlla-cPJh2mgg0Jml6UY",
-    },
-  };
+  const [ErrorStatus, setErrorStatus] = useState(false);
   async function getData() {
     setLoading(true);
     const res = await fetch(
-      `https://api.newscatcherapi.com/v2/latest_headlines?countries=${Country}&topic=${Topic}&lang=en`,
-      options
+      `https://newsapi.org/v2/top-headlines?country=${Country}&apiKey=1453bad8a6864bffa43aaa108dd5128a&category=${Topic}`
     );
     const json = await res.json();
-    console.log(json);
+    console.log("hey this is the server response", json);
     setLoading(false);
-    setNewsData(json.articles.slice(0, 25));
+    if (json.status === "error") {
+      setErrorStatus(true);
+      console.log(ErrorStatus);
+    } else {
+      setNewsData(json.articles.slice(0, 25));
+    }
   }
 
   useEffect(() => {
@@ -39,6 +37,7 @@ const Newstack = () => {
         Loading={Loading}
         Page={Page}
         setPage={setPage}
+        ErrorStatus={ErrorStatus}
       />
     </section>
   );

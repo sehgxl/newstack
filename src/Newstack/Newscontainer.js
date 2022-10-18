@@ -3,7 +3,13 @@ import Filters from "./Filters";
 import DiplayArticles from "./DisplayArticles";
 import ReactPaginate from "react-paginate";
 import { useState } from "react";
-const Newscontainer = ({ NewsData, setTopic, setCountry, Loading }) => {
+const Newscontainer = ({
+  NewsData,
+  setTopic,
+  setCountry,
+  Loading,
+  ErrorStatus,
+}) => {
   //current pg no
   const [pageNumber, setPageNumber] = useState(0);
   const articlesPerPage = 5;
@@ -26,6 +32,7 @@ const Newscontainer = ({ NewsData, setTopic, setCountry, Loading }) => {
         NewsData={NewsData}
         Loading={Loading}
         showArticles={showArticles}
+        ErrorStatus={ErrorStatus}
       />
       <ReactPaginate
         previousLabel={"Back"}
