@@ -2,25 +2,35 @@ import React, { useEffect, useState } from "react";
 import Newscontainer from "./Newscontainer";
 const Newstack = () => {
   const [NewsData, setNewsData] = useState([]);
-  const [Country, setCountry] = useState("in");
-  const [Topic, setTopic] = useState("general");
+  const [Country, setCountry] = useState("en-IN");
+  const [Topic, setTopic] = useState("Business");
   const [Loading, setLoading] = useState(false);
   const [Page, setPage] = useState(1);
   const [ErrorStatus, setErrorStatus] = useState(false);
+  const options = {
+    method: "GET",
+    headers: {
+      "X-BingApis-SDK": "true",
+      "X-RapidAPI-Key": "6d6188f4d6msh4a22f6e54132a7fp1df093jsn98522b0adc81",
+      "X-RapidAPI-Host": "bing-news-search1.p.rapidapi.com",
+    },
+  };
+
   async function getData() {
     setLoading(true);
     const res = await fetch(
-      `https://newsapi.org/v2/top-headlines?country=${Country}&apiKey=1453bad8a6864bffa43aaa108dd5128a&category=${Topic}`
+      `https://bing-news-search1.p.rapidapi.com/news?safeSearch=Off&textFormat=Raw&category=${Topic}&mkt=${Country}`,
+      options
     );
     const json = await res.json();
-    console.log("hey this is the server response", json);
+    console.log("hey this is the server response", json.value);
     setLoading(false);
-    if (json.status === "error") {
-      setErrorStatus(true);
-      console.log(ErrorStatus);
-    } else {
-      setNewsData(json.articles.slice(0, 25));
-    }
+    // if (json.status === "error") {
+    //   setErrorStatus(true);
+    //   console.log(ErrorStatus);
+    // } else {
+    setNewsData(json.value);
+    // }
   }
 
   useEffect(() => {

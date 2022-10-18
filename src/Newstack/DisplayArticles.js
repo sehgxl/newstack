@@ -14,7 +14,7 @@ const DiplayArticles = ({ Loading, showArticles, ErrorStatus }) => {
             </h1>
           ) : null}
           {showArticles?.map((item) => {
-            return <Newsitem item={item} key={item._id} />;
+            return <Newsitem item={item} />;
           })}
         </section>
       )}

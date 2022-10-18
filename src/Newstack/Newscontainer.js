@@ -21,7 +21,7 @@ const Newscontainer = ({
     pagesVisited + articlesPerPage
   );
   //how many pages
-  const pageCount = Math.ceil(NewsData.length / articlesPerPage);
+  const pageCount = Math.ceil(NewsData?.length / articlesPerPage);
   const changePage = ({ selected }) => {
     setPageNumber(selected);
   };
