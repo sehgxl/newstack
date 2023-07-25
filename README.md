@@ -1,5 +1,5 @@
 # Newstack
-- Minimal Design News App 
+Minimal Design News App 
 - Uses the newscather API to deliver news headlines
 - Deployed on Vercel
 
